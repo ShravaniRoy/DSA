@@ -8,7 +8,7 @@ function countUniqueValues(testArr){
         return 1;
     }
     let left=0, next=1;
-    while(next <= testArr.length -1){
+    while(next <= testArr.length){
         if(testArr[left] === testArr[next]){
             next = next + 1;
         } else {
