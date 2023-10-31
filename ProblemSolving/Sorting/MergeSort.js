@@ -1,6 +1,7 @@
 /* merging two sorted arrays */
 function mergeSortedArrays(arr1, arr2){
-    let i = j = 0;
+    let i = 0
+    let j= 0;
     let result = [];
     while(i < arr1.length && j < arr2.length){
         if(arr1[i] < arr2[j]){
@@ -20,17 +21,18 @@ function mergeSortedArrays(arr1, arr2){
         result.push(arr2[j]);
             j++;
     }
+   return result;
 }
 
 function breakArray (arr){
-    let start = 0;
-    let end = arr.length - 1;
-    let mid = arr.length / 2;
+    let mid = Math.floor(arr.length / 2);
     if(arr.length < 2){ //base case where we cannot proceed to break array
         return arr;
     }
-    return mergeSortedArrays(breakArray(arr.slice(start, mid)), breakArray(arr.slice(mid+1, end)));
-//recursively calling the merging array by passing left sub array and right sub array
+    let left = breakArray(arr.slice(0, mid));
+    let right = breakArray(arr.slice(mid, arr.length))
+    return mergeSortedArrays(left, right);
+// recursively calling the breakArray n merging array by passing left sub array and right sub array
 }
 
 breakArray([12, 32, 0, 4, 9, 43, 20, 5, 45, 2]);
