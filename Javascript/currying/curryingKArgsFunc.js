@@ -10,4 +10,8 @@ function curriedAdd(a){
     }
 }
 
-console.log(curriedAdd(2)(4));
+// console.log(curriedAdd(2)(4));
+const reusableAdd = curriedAdd(4);
+console.log(reusableAdd(4));
+console.log(reusableAdd(5));
+console.log(reusableAdd(6));
